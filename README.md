@@ -82,3 +82,19 @@ src/
 | `/dashboard/soap` | SOAP envelope editor with XML validation |
 | `/dashboard/xmlJson` | Submit XML/JSON payloads |
 | `/dashboard/stripe` | Stripe customer CRUD (admin only) |
+
+
+### Screens
+
+<img width="2558" height="854" alt="1" src="https://github.com/user-attachments/assets/4256cb9e-28a7-4d5a-b644-e3dbe0f02200" />
+
+<img width="2560" height="1128" alt="2" src="https://github.com/user-attachments/assets/a2220d53-34f9-4c5a-bff2-64289e84dc3e" />
+
+<img width="2558" height="1286" alt="3" src="https://github.com/user-attachments/assets/72ba4559-4e18-42ee-8344-89ceb3163ee6" />
+
+<img width="2558" height="871" alt="4" src="https://github.com/user-attachments/assets/f8178db7-b0ae-434e-823c-4a9986fef459" />
+
+<img width="2556" height="1017" alt="5" src="https://github.com/user-attachments/assets/3ed5d54a-07a8-4d5d-8138-fcb299397c84" />
+
+
+

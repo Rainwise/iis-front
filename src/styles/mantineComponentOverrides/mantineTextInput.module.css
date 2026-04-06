@@ -1,0 +1,25 @@
+.input {
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-bg-1);
+  color: var(--mantine-color-text-0);
+  border: none;
+  min-width: 50px;
+  border: 1px solid var(--mantine-color-gray-3);
+}
+
+.input:focus {
+  border: 1.5px solid var(--mantine-color-primary-2);
+}
+
+.input::placeholder {
+  color: var(--mantine-color-text-3);
+}
+
+.input:disabled {
+  background: var(--mantine-color-bg-4);
+}
+
+.label {
+  color: var(--mantine-color-text-0);
+  margin-bottom: 5px;
+}

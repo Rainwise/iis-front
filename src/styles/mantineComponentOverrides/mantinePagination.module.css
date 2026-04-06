@@ -1,0 +1,28 @@
+.root {
+  --pagination-control-fz: var(--mantine-font-size-sm);
+  --pagination-active-bg: var(--mantine-color-primary-3);
+  --pagination-active-color: var(--mantine-color-text-4);
+  --button-bg: var(--mantine-color-coolGray-0);
+  --pagination-control-size: 36px;
+  --color: var(--mantine-color-text-0);
+
+  .dots {
+    color: var(--mantine-color-primary-3);
+  }
+
+  .label {
+    color: var(--mantine-color-primary-3);
+  }
+
+  .control:not([data-active]) {
+    color: var(--mantine-color-text-0);
+    background-color: var(--mantine-color-primary-8);
+    border: none;
+  }
+
+  .control:last-of-type,
+  .control:first-of-type {
+    background-color: var(--mantine-color-secondary-1);
+    color: var(--mantine-color-text-4);
+  }
+}

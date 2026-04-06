@@ -1,0 +1,18 @@
+.header {
+  background: var(--mantine-color-primary-2);
+  margin-bottom: 20px;
+
+  button {
+    background-color: var(--mantine-color-text-4);
+    border-radius: 20px;
+  }
+}
+
+.title {
+  color: var(--mantine-color-text-4);
+  font-size: var(--mantine-font-size-lg);
+}
+
+.content {
+  background-color: var(--mantine-color-bg-1);
+}

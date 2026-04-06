@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "iis_project";
+
+package weather;
+
+service WeatherService {
+  rpc GetTemperatureByCity (CityRequest) returns (CityTemperatureList);
+}
+
+message CityRequest {
+  string city_name = 1;
+}
+
+message CityTemperature {
+  string city = 1;
+  string temperature = 2;
+}
+
+message CityTemperatureList {
+  repeated CityTemperature results = 1;
+}

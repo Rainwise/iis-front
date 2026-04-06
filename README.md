@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IIS Frontend
+
+A Next.js web application dashboard for testing and demonstrating multiple integration protocols and services, including REST, gRPC, SOAP, XML/JSON transformation, and Stripe payment integration.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 / React 19
+- **UI**: [Mantine v9](https://mantine.dev) + [Tabler Icons](https://tabler.io/icons)
+- **HTTP Client**: Axios (with JWT interceptors)
+- **Protocols**: REST, gRPC (`@grpc/grpc-js`), SOAP
+- **Language**: TypeScript (strict mode)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Create a `.env.local` file in the project root:
+
+```env
+NEXT_PUBLIC_BASE_URL=http://localhost:5066   # REST API base URL
+GRPC_URL=localhost:5067                       # gRPC server endpoint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install & Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Other Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build   # Production build
+npm start       # Start production server
+npm run lint    # Run ESLint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── api/grpc/weather/    # Next.js API route for gRPC calls
+│   ├── auth/                # Login page
+│   ├── dashboard/           # Protected dashboard routes
+│   │   ├── grpc/            # Weather via gRPC
+│   │   ├── soap/            # SOAP envelope editor
+│   │   ├── stripe/          # Stripe customer management
+│   │   └── xmlJson/         # XML/JSON payload submission
+│   └── layout.tsx           # Root layout with AuthProvider
+├── components/              # Shared UI components
+├── hooks/
+│   ├── api/                 # useApiClient (Axios + auth interceptor)
+│   ├── grpc/                # useGrpc
+│   ├── providers/           # useAuthContext
+│   ├── soap/                # SOAP integration hooks
+│   ├── stripeCustomer/      # Stripe CRUD hooks
+│   └── tokens/              # Token management hooks
+├── proto/                   # gRPC Protobuf definitions
+├── routes/                  # Route path constants
+├── styles/                  # Mantine theme & component overrides
+└── types/                   # Shared TypeScript interfaces
+```
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Authentication
+- Username/password login with JWT tokens
+- Role-based access control (admin vs user, decoded from JWT)
+- Automatic token refresh via Axios interceptors
+- Token revocation from the dashboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Dashboard Pages
+
+| Route | Description |
+|---|---|
+| `/dashboard` | Token management (refresh / revoke) |
+| `/dashboard/grpc` | Fetch weather data via gRPC |
+| `/dashboard/soap` | SOAP envelope editor with XML validation |
+| `/dashboard/xmlJson` | Submit XML/JSON payloads |
+| `/dashboard/stripe` | Stripe customer CRUD (admin only) |
